@@ -130,6 +130,15 @@ $ docker exec -it laravel-app bash
 ># php artisan migrate:fresh
 >#  php artisan migrate
 ```
+set permission to edit files inside src folder 
+```bash
+$ cd /path/to/laravel-docker-project/src 
+$ sudo chown -R $USER:$USER src
+$ chmod -R u+rwX src
+$ docker compose down 
+$ docker compose up -d
+```
+
 
 to check docker logs  
 ```bash
