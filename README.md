@@ -138,7 +138,11 @@ $ chmod -R u+rwX src
 $ docker compose down 
 $ docker compose up -d
 ```
-
+mysql public key issue
+```bash
+ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY 'rootpass';
+FLUSH PRIVILEGES;
+```
 
 to check docker logs  
 ```bash
