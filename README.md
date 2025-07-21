@@ -15,11 +15,11 @@ $
 
 folder structure 
 ```bash
-laravel-app/
-├── docker-compose.yml
-├── Dockerfile
-├── .env         ← Laravel env file (created after app)
-└── (Laravel project files)
+/your-project
+├── docker/
+│   ├── Dockerfile
+│   └── docker-compose.yaml
+├── src/ ← Laravel will be installed here
 
 ```
 
@@ -41,7 +41,7 @@ services:
     ports:
       - "8000:80"
     volumes:
-      - .:/var/www/html
+      - ../src:/var/www/html
     depends_on:
       - db
 
@@ -109,7 +109,7 @@ Configure Laravel .env for Docker DB
 ```dotenv
 DB_CONNECTION=mysql
 DB_HOST=db
-DB_PORT=3306
+DB_PORT=3306 # in network 3306 and out network 3307
 DB_DATABASE=laravel
 DB_USERNAME=root
 DB_PASSWORD=rootpass
@@ -117,13 +117,22 @@ DB_PASSWORD=rootpass
 
 start laravel application  
 ```bash
+$ docker compouse build 
 $ docker compouse up -d
 ```
 
 Test DB with Artisan (should create tables in your MySQL Docker DB)
 ```bash
 $ docker exec -it laravel-app bash
+># php artisan config:clear
+># php artisan config:cache
+># php artisan migrate:fresh
 >#  php artisan migrate
+```
+
+to check docker logs  
+```bash
+$ docker logs -f mysql-db # -f or --follow
 ```
 
 
