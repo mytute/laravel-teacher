@@ -101,7 +101,9 @@ $ docker-compose run --rm app composer create-project laravel/laravel myapp  # c
 Set permission  
 ```bash
 $ docker compose exec app bash
+$ composer create-project laravel/laravel .
 $ chmod -R 775 storage bootstrap/cache
+$ chown -R www-data:www-data storage bootstrap/cache
 $ exit
 ```
 
