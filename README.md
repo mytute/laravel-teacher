@@ -84,8 +84,8 @@ COPY --from=composer:2.6 /usr/bin/composer /usr/bin/composer
 RUN sed -i 's|DocumentRoot /var/www/html|DocumentRoot /var/www/html/public|g' /etc/apache2/sites-available/000-default.conf
 
 # Permissions fix
-RUN chown -R www-data:www-data /var/www/html \
-    && chmod -R 755 /var/www/html/storage
+# RUN chown -R www-data:www-data /var/www/html \
+#    && chmod -R 755 /var/www/html/storage
 
 EXPOSE 80
 CMD ["apache2-foreground"]
@@ -94,7 +94,15 @@ CMD ["apache2-foreground"]
 Build the Container & Install Laravel  
 ```bash
 $ docker-compose build
-$ docker-compose run --rm app composer create-project laravel/laravel .  # create laravel inside container
+$ docker-compose run --rm app composer create-project laravel/laravel myapp  # create laravel inside container
+# in order to create "." dicrecotry should remove other files.
+```
+
+Set permission  
+```bash
+$ docker compose exec app bash
+$ chmod -R 775 storage bootstrap/cache
+$ exit
 ```
 
 Configure Laravel .env for Docker DB  
