@@ -93,9 +93,8 @@ CMD ["apache2-foreground"]
 
 Build the Container & Install Laravel  
 ```bash
-$ docker-compose build
-$ docker-compose run --rm app composer create-project laravel/laravel myapp  # create laravel inside container
-# in order to create "." dicrecotry should remove other files.
+$ docker compose build
+$ docker compose up -d
 ```
 
 Set permission  
@@ -119,8 +118,8 @@ DB_PASSWORD=rootpass
 
 start laravel application  
 ```bash
-$ docker compouse build 
-$ docker compouse up -d
+$ docker compose build 
+$ docker compose up -d
 ```
 
 Test DB with Artisan (should create tables in your MySQL Docker DB)
