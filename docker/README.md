@@ -144,6 +144,79 @@ ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY 'rootpass';
 FLUSH PRIVILEGES;
 ```
 
+add .gitignore file  
+```bash
+# Laravel
+/vendor
+/node_modules
+/public/storage
+/public/hot
+/public/build
+/public/mix-manifest.json
+/public/js/*.js
+/public/css/*.css
+/public/js/*.map
+/public/css/*.map
+
+/storage/*.key
+/storage/app/public
+/storage/debugbar
+/storage/framework/cache/*
+/storage/framework/sessions/*
+/storage/framework/testing/*
+/storage/framework/views/*
+/storage/logs/*
+
+.env
+.env.backup
+.env.production
+.env.*.local
+
+.phpunit.result.cache
+/.phpunit.cache
+/phpunit.result.cache
+
+# Laravel IDE helpers
+/_ide_helper.php
+/_ide_helper_models.php
+
+# Docker-related
+docker-compose.override.yml
+docker/.env
+docker/**/logs
+*.log
+
+# Homestead
+Homestead.json
+Homestead.yaml
+
+# Authentication credentials
+auth.json
+
+# Editor/IDE settings
+/.idea
+/.vscode
+/.fleet
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Composer
+composer.lock
+
+# NPM/Yarn logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Laravel Sail vendor binaries
+/vendor-bin
+
+# Code coverage
+coverage/
+```
+
 to check docker logs  
 ```bash
 $ docker logs -f mysql-db # -f or --follow
