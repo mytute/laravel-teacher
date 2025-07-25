@@ -20,7 +20,9 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
+        'login_id',
         'password',
+        'role',
     ];
 
     /**
@@ -29,8 +31,11 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $hidden = [
-        'password',
         'remember_token',
+        'created_at',
+        'updated_at',
+        'email_verified_at',
+        'password',
     ];
 
     /**
@@ -42,4 +47,20 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+
+    public static function getUserRoleName() {
+        $user = auth()->user();
+        return $user->role;
+    }
+
+    public static function getUserName() {
+        $user = auth()->user();
+        return $user->name;
+    }
+
+    public function role()
+    {
+        return $this->belongsTo(Role::class);
+    }
 }
