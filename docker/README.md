@@ -223,5 +223,13 @@ to check docker logs
 $ docker logs -f mysql-db # -f or --follow
 ```
 
+Clear Laravel caches (best practice)
+```bash
+php artisan cache:clear
+php artisan config:clear
+php artisan route:clear
+php artisan view:clear
+```
+
 
 
