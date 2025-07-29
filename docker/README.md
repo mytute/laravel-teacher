@@ -40,6 +40,7 @@ services:
     container_name: laravel-app
     ports:
       - "8000:80"
+      - "5173:5173" 
     volumes:
       - ../src:/var/www/html
     depends_on:
