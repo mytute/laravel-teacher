@@ -222,6 +222,14 @@ to check docker logs
 ```bash
 $ docker logs -f mysql-db # -f or --follow
 ```
+to check Laravel logs  
+```php
+ logger()->debug('CentralProvider config in getTokenUrl:', $this->config); 
+```
+```bash
+# check logs
+tail -f storage/logs/laravel.log
+```
 
 Clear Laravel caches (best practice)
 ```bash
