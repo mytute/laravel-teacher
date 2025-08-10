@@ -126,6 +126,7 @@ $ docker compose up -d
 Test DB with Artisan (should create tables in your MySQL Docker DB)
 ```bash
 $ docker exec -it laravel-app bash
+># composer install
 ># php artisan config:clear
 ># php artisan config:cache
 ># php artisan migrate:fresh
