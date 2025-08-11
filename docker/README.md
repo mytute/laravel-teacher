@@ -98,6 +98,12 @@ $ docker compose build
 $ docker compose up -d
 ```
 
+Not to track permission change for git   
+```bash
+> git config core.fileMode false # only inside current repo
+> git config --global core.fileMode false # for all the repo in your machine
+```
+
 Set permission  
 ```bash
 $ docker compose exec app bash
