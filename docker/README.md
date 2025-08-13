@@ -137,6 +137,7 @@ $ docker exec -it laravel-app bash
 ># php artisan config:cache
 ># php artisan migrate:fresh
 >#  php artisan migrate
+># php artisan db:seed
 ```
 set permission to edit files inside src folder 
 ```bash
