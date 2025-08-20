@@ -246,6 +246,13 @@ php artisan config:clear
 php artisan route:clear
 php artisan view:clear
 ```
-
+Get mysql dump  
+```bash
+$ docker exec -i 1a7d5d78a49d  mysqldump -u root -p metax_d > metax_d_backup4.sql # this will create dump file on where docker compose file located.
+$ docker cp metax_d_backup.sql d241ef896d55:/tmp/metax_d_backup.sql # copy laptop located metax_d_backup4.sql file in to docker's "/tmp" file.
+$ docker exec d241ef896d55 ls -lh /tmp/metax_d_backup.sql # # check if above command copied or not.
+$ docker exec -i d241ef896d55 mysql -uroot -proot -e "CREATE DATABASE IF NOT EXISTS meta_fts_d CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;"
+$ docker exec -i d241ef896d55 sh -c 'mysql -uroot -proot meta_fts_d < /tmp/metax_d_backup.sql'
+```
 
 
